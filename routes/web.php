@@ -10,14 +10,24 @@ use App\Answer;
  * and form for new questions
  */
 Route::get('/', function () {
-    return view('questions');
+    $questions = Question::orderBy('created_at', 'asc')->get();
+
+    return view('questions', [
+        'questions' => $questions
+    ]);
 });
 
 /*
  * Create a new question
  */
 route::post('/question', function (Request $request) {
-    return view('/');
+    $data = $request->validate([
+        'question' => 'required',
+    ]);
+
+    $question = tap(new Question($data))->save();
+
+    return redirect('/');
 });
 
 /*
