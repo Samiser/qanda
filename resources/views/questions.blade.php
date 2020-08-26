@@ -47,7 +47,7 @@
                                 <div><a href="/question/{{ $question->id }}/">{{ $question->question }}</a></div>
                             </td>
                             <td class="table-text text-center">
-                                <div>0</div>
+                                <div>{{ count($question->answers) }}</div>
                             </td>
                         </tr>
                     @endforeach
