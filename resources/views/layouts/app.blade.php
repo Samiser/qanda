@@ -10,7 +10,7 @@
 
     <body>
         <div class="container">
-            <h1 class="display-2 text-center">qanda</h1>
+            <h1 class="display-2 text-center"><a style="color: inherit; text-decoration: none" href="/">qanda</a></h1>
         </div>
 
         <div class="container">

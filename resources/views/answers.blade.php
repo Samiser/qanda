@@ -36,7 +36,9 @@
     @endif
 
     <!-- display errors -->
+    <div class="row justify-content-center">
     @include('common.errors')
+    </div>
     <div class="row justify-content-center text-center">
         <div class="col-12">
         <!-- answer form -->

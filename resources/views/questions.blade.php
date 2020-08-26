@@ -4,10 +4,12 @@
 
 @section('content')
 
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center">
         <!-- display errors -->
         @include('common.errors')   
+    </div>
 
+    <div class="row justify-content-center text-center">
         <!-- new question form -->
         <form action="{{ url('question') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
