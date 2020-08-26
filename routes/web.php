@@ -22,7 +22,7 @@ Route::get('/', function () {
  */
 route::post('/question', function (Request $request) {
     $data = $request->validate([
-        'question' => 'required',
+        'question' => 'required|max:5000|min:5|ends_with:?',
     ]);
 
     $question = tap(new Question($data))->save();
@@ -50,7 +50,7 @@ route::post('/answer', function (Request $request) {
     $request->flash();
 
     $data = $request->validate([
-        'answer' => 'required',
+        'answer' => 'required|max:5000|min:5',
         'question_id' => 'required',
     ]);
 

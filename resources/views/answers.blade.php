@@ -35,6 +35,8 @@
         </div>
     @endif
 
+    <!-- display errors -->
+    @include('common.errors')
     <div class="row justify-content-center text-center">
         <div class="col-12">
         <!-- answer form -->
@@ -43,7 +45,7 @@
 
             <!-- answer -->
             <div class="form-group">
-                <input type="text" name="answer" id="answer" class="form-control">
+                <textarea cols="50" type="text" name="answer" id="answer" class="form-control">{{ old('answer') }}</textarea>
                 <input type="hidden" id="question_id" name="question_id" value="{{ $question->id }}">
             </div>
 

@@ -5,22 +5,25 @@
 @section('content')
 
     <div class="row justify-content-center text-center">
-            <!-- new question form -->
-            <form action="{{ url('question') }}" method="POST" class="form-horizontal">
-                {{ csrf_field() }}
+        <!-- display errors -->
+        @include('common.errors')   
 
-                <!-- question input -->
-                <div class="form-group">
-                    <input type="text" name="question" id="question" class="form-control">
-                </div>
+        <!-- new question form -->
+        <form action="{{ url('question') }}" method="POST" class="form-horizontal">
+            {{ csrf_field() }}
 
-                <!-- submit question button -->
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-plus"></i> Post Question
-                    </button>
-                </div>
-            </form>
+            <!-- question input -->
+            <div class="form-group">
+                <textarea cols="50" type="text" name="question" id="question" class="form-control">{{ old('question') }}</textarea>
+            </div>
+
+            <!-- submit question button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-plus"></i> Post Question
+                </button>
+            </div>
+        </form>
     </div>
 
     @if (count($questions) > 0)
