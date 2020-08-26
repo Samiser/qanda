@@ -14,7 +14,7 @@
 
             <!-- question input -->
             <div class="form-group">
-                <textarea cols="50" type="text" name="question" id="question" class="form-control">{{ old('question') }}</textarea>
+                <textarea cols="50" placeholder="{{ $placeholder }}" type="text" name="question" id="question" class="form-control">{{ old('question') }}</textarea>
             </div>
 
             <!-- submit question button -->

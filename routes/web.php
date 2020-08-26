@@ -12,8 +12,19 @@ use App\Answer;
 Route::get('/', function () {
     $questions = Question::orderBy('created_at', 'desc')->get();
 
+    $examples = array("why are vegans so cool?",
+                      "how can i best reduce my carbon footprint?",
+                      "why is the sky blue?",
+                      "why did the chicken cross the road?",
+                      "how are baby cows so cute?",
+                      "why is hacktivism useful?",
+		      "who made this epic web app?",
+		      "whats the meaning of life?",
+		      "has anyone really been far even as decided to use even go want to do look more like?");
+
     return view('questions', [
-        'questions' => $questions
+        'questions' => $questions,
+        'placeholder' => $examples[array_rand($examples)],
     ]);
 });
 
