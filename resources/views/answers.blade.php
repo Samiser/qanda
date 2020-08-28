@@ -39,15 +39,16 @@
     <div class="row justify-content-center">
     @include('common.errors')
     </div>
+
+    <!-- answer form -->
     <div class="row justify-content-center text-center">
         <div class="col-12">
-        <!-- answer form -->
-        <form action="{{ url('answer') }}" method="POST" class="form-horizontal">
+        <form action="{{ route('question.answer.store', ['question' => $question]) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- answer -->
             <div class="form-group">
-                <textarea cols="50" type="text" name="answer" id="answer" class="form-control">{{ old('answer') }}</textarea>
+                <textarea cols="50" type="text" name="answer" id="answer" class="form-control">{{ count($errors) > 0 ? old('answer') : "" }}</textarea>
                 <input type="hidden" id="question_id" name="question_id" value="{{ $question->id }}">
             </div>
 

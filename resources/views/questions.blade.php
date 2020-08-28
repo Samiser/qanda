@@ -4,14 +4,14 @@
 
 @section('content')
 
+    <!-- display errors -->
     <div class="row justify-content-center">
-        <!-- display errors -->
         @include('common.errors')   
     </div>
 
+    <!-- new question form -->
     <div class="row justify-content-center text-center">
-        <!-- new question form -->
-        <form action="{{ url('question') }}" method="POST" class="form-horizontal">
+        <form action="{{ route('question.store') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- question input -->
@@ -46,7 +46,7 @@
                         <tr>
                             <!-- question name -->
                             <td class="table-text">
-                                <div><a href="/question/{{ $question->id }}/">{{ $question->question }}</a></div>
+                                <div><a href="{{ route('question.show', ['question' => $question]) }}/">{{ $question->question }}</a></div>
                             </td>
                             <td class="table-text text-center">
                                 <div>{{ count($question->answers) }}</div>
